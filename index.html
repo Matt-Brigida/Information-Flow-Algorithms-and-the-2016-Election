@@ -64,12 +64,45 @@ color: black;
 
 	<section>
 	  <ul>
-	    <li>Trading hours from Sunday - Friday 6:00 p.m. - 5:00 p.m. Eastern Time (ET)</li>
+	    <li>Trading hours from Sunday--Friday 6:00 p.m. - 5:00 p.m. Eastern Time (ET)</li>
+	    <li>Contract value is $50 times the futures price.</li>
+	    <li>Cash delivery with expirations every 3 months.</li>
+	    <li>Traded on the CME (pit and electronic).</li>
 	  </ul>
 	</section>
+
+	<section>
 	<section>
 	  <h3>The Data</h3>
-	  <p align="left"></p>
+	
+	  <p align="left">Data are <a href="http://www.cmegroup.com/confluence/display/EPICSANDBOX/Market%2BDepth">Market Depth Data</a> for natural gas futures (ticker: NG) purchased directly from the Chicago Mercantile Exchange (CME).</p>
+	  <ul>
+	    <li>Market Depth Data contains all market messages (trade/limit order updates) to and from the CME, and is time-stamped to the nanosecond. Also tags agressorside.</li>
+	    <li>Can recreate the ES orderbook up to 10 levels deep. </li>
+	  </ul> 
+
+	</section>
+
+	<section>
+
+	  <ul>
+	    <li>The data are encoded in the <a href="http://www.cmegroup.com/confluence/download/attachments/62816403/Legacy\%2520FIX-FAST\%2520Market\%2520Dta\%2520Message\%2520Specification.pdf?version=2&modificationDate=1452872661000&api=v2">CME's FIX/FAST message specification</a>.</li>
+	    <li>The translation scripts used in this analysis <a href="https://github.com/Matt-Brigida/CME-FIX-FAST-Translator">are available here</a>.</li>
+	    <li></li>
+	  </ul>
+
+	</section>
+
+	<section>
+	  <h3>Why CME Data?</h3>
+	  <ul>
+	    <li>All trades and quotes take place in this one central book</li>
+	    <li>No delay in orders due to location</li>
+	    <li>Heavily traded.</li>
+	  </ul>.  
+</section>
+	</section>
+	  
 
 	</section>
 
