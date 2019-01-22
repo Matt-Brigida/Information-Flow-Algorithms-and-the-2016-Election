@@ -58,6 +58,7 @@ color: black;
 	</section>
 
 	<section>
+	<section>
 	  <h3>E-Mini S&P 500 Futures</h3>
 	  <p align="left"></p>
 
@@ -68,15 +69,17 @@ color: black;
 	    <li>Trading hours from Sunday--Friday 6:00 p.m. - 5:00 p.m. Eastern Time (ET)</li>
 	    <li>Contract value is $50 times the futures price.</li>
 	    <li>Cash delivery with expirations every 3 months.</li>
-	    <li>Traded on the CME (pit and electronic).</li>
+	    <li>Traded on the Chicago Mercantile Exchange (CME) (pit and electronic (Globex)).</li>
+	    <li>Stock market price discovery occurs in this market. </li>
 	  </ul>
+	</section>
 	</section>
 
 	<section>
 	<section>
 	  <h3>The Data</h3>
 	
-	  <p align="left">Data are <a href="http://www.cmegroup.com/confluence/display/EPICSANDBOX/Market%2BDepth">Market Depth Data</a> for natural gas futures (ticker: NG) purchased directly from the Chicago Mercantile Exchange (CME).</p>
+	  <p align="left">Data are <a href="http://www.cmegroup.com/confluence/display/EPICSANDBOX/Market%2BDepth">Market Depth Data</a> for E-Mini S7P 500 futures (Globex) purchased directly from the CME.</p>
 	  <ul>
 	    <li>Market Depth Data contains all market messages (trade/limit order updates) to and from the CME, and is time-stamped to the nanosecond. Also tags agressorside.</li>
 	    <li>Can recreate the ES orderbook up to 10 levels deep. </li>
@@ -107,10 +110,40 @@ color: black;
 	</section>
 
 <section>
-  <h3>HFT</h3>
+  <h2>HFT</h2>
 
   
 </section>
+
+<section>
+  <section>
+    <h2>A Look at the Data</h2>
+  </section>
+  <section data-background-image="./code_image.jpg">
+  <div class="stretch">
+    <iframe src="./minute_bid_offer_price.html" height="100%" width="100%"></iframe>
+  </div>
+  </section>
+    <section data-background-image="./code_image.jpg">
+  <div class="stretch">
+    <iframe src="./second_bid_offer_price.html" height="100%" width="100%"></iframe>
+  </div>
+</section>
+
+</section>
+
+<!-- Reactive Liquidity Results -->
+
+<section>
+  <section>
+    <h3>Algorithmic Reaction to Trades</h3>
+    
+  </section>
+</section>
+
+
+
+
 
 	<section>
 	  <h3>Algorithms</h3>
@@ -118,6 +151,8 @@ color: black;
 	  
 
 	</section>
+
+	
 
 	<section>
 	<h3>Algo Classification</h3>
@@ -140,6 +175,11 @@ color: black;
 	  
 	</section>
 
+	<!-- Add Kalman and MS Approach results -->
+
+
+
+	
 
 <!-- Insert App -->
 <!-- <section data-background-image="./code_image.jpg"> -->
