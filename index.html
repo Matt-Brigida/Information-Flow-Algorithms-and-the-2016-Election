@@ -176,26 +176,73 @@ color: black;
 
 <p align="left">Hasbrouck (2016) (High-Frequency Quoting) used variance ratio tests as evidence of algorithmic trading.</p>
 </section>
-	
+
+
 	<section>
 	<h3>Real-Time Classification</h3>
 
-<p align="left">I attempt to identify the presence of algorithms by including thier presence as a latent variable in a Markov-Switching regression.</p>
+<p align="left">I attempt to identify the presence of algorithms by including thier presence as a latent variable in a Markov-Switching regression---an <b class="fragment highlight-green">unsupervised learning approach</b></p>
 
 	</section>
 
-	
 	<section>
-
-
-	  <p align="left">Our data set does not contain HFT or Algo indicators, and so we'll use <b class="fragment highlight-green">unsupervised learning</b> methods.</p>
+	  <section>
+	    <h3>Varying Liquidity</h3>
+	    <p align="left">I measure liquidity on each side of the book as the amount of ES that can be bought within one point of the present bid-ask midpoint. </p>
+	    <ul>
+	      <li>1 point is 4 ticks (so maximum the inside quote and 3 additional leveld of the book)</li>
+	      <li>I then calculate the average liquidity over each millisecond, and each second.</li>
+	    </ul>
+	    
+	  </section>
+	<section>
+	  <h3>Model</h3>
+	  <br>
+	  <span class="fragment highlight-current-green">
+	  \[
+	  Liq_t =
+	  \begin{cases}
+	  \alpha_1 + \beta_1 Liq_{t-1} + \epsilon_1, \ \ \ \epsilon_1 \sim N(0, \sigma_1)    \\
+	  \alpha_2 + \beta_2 Liq_{t-1} + \epsilon_2, \ \ \ \epsilon_2 \sim N(0, \sigma_2)    \\
+	  \end{cases}
+	  \]
+	  </span>
+	  <br>
+	  <br>
+	  <span class="fragment highlight-current-green">
+	  \[
+	  P(s_t = j | s_{t-1} = i) = p_{ij} \\ \text{for} \ \ i,j \in {1,2} \ and \ \sum_{j=1}^2 = 1
+	  \]
+	  </span>	
 	  
 	</section>
 
+	<section>
+	  <h3>Model Estimation</h3>
+	  <p align="left">The model is estimated via the Hamilton Filter.</p>
+	  <ul>
+	    <li>Original code was in plain R, though it took to long to estimate.</li>
+	    <li>Rewritten in C++, making use of Rcpp.</li>
+	  </ul>
+	</section>
+
+	<section>
+	  <h3>Code</h3>
+
+<!-- insert code -->
+
+	  
+	</section>
+	
 	<!-- Add Kalman and MS Approach results -->
 
 
-
+	<section data-background-image="./code_image.jpg">
+	  <div class="stretch">
+	    <iframe src="./graphics/state_density.html" height="100%" width="100%"></iframe>
+	  </div>
+	</section>
+</section>
 	
 
 <!-- Insert App -->
@@ -203,7 +250,6 @@ color: black;
 <!--   <div class="stretch"> -->
 <!--     <iframe src="https://micfm.shinyapps.io/limit_order_book_app1/" height="100%" width="100%"></iframe> -->
 <!--   </div> -->
-<!-- </section> -->
 <!-- </section> -->
 
 <section>
