@@ -213,10 +213,18 @@ $|\Delta(price)| = \lambda(volume\ in\ \$)$
     <p align="left">Trade criteria:</p>
 
     <ul>
-      <li>The trade had to be for 5 or fewer contracts.</li>
+      <li>The trade had to be for <span class="highlight current-red">5 or fewer</span> contracts.</li>
       <li>No trades in the following 100 ms.</li>
     </ul>
-    
+
+    <section>
+      <h3>Method</h3>
+      
+    </section>
+
+    <section>
+      <h3>Results</h3>
+    </section>
     
   </section>
 </section>
@@ -234,7 +242,20 @@ $|\Delta(price)| = \lambda(volume\ in\ \$)$
 
 	</section>
 
-	
+	<section>
+	  <h3>Our Goal:  Thinking with Data</h3>
+
+	  Changing liquidity is a greater cost for slower traders.  If we can identify periods with particularly volatile liquidity we can create trading mechanisms whereby slower traders liquidity taking orders are canceled/delayed until liquidity is less volatile.
+
+	  Because of the low-latency nature of the data, these are neessarily automated rules (estimate liquidity volatility over the next few milliseconds and optinally delay givem the results).
+
+	  Hih-latency (retail) may not even notice the delay.  It would save each retail trader a fraction of a cent on each share, but across all retain trades this would be considerable savings.
+
+	  -  Identification would have to be quick (estimate and forecast models in milliseconds).
+
+	  -  An idea, similar in spirit though different in structure (they target moving prices not bid/offer volatility) is being implemented by the IEX:  
+	  
+	</section>
 
 	<section>
 	<h3>Algo Classification</h3>
