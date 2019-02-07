@@ -57,6 +57,9 @@ color: black;
 	  </section>
 	</section>
 
+
+
+	
 	<section>
 	<section>
 	  <h3>E-Mini S&P 500 Futures</h3>
@@ -107,7 +110,69 @@ color: black;
 	  </ul>.  
 </section>
 	<!-- </section> -->
+</section>
+
+
+	<section>
+	  <section>
+	    <h3>Review</h3>
+	    
+	  </section>
+	  <!-- from https://github.com/Matt-Brigida/fin_532_market_depth/blob/master/index.html-->
+	  	<section>
+	  <h3>Thoughts on Private Information</h3>
+
+	  <ul>
+	    <li>Trades are the method by which <b class="fragment highlight-green">private information</b> is incorporated into <b class="fragment highlight-green">prices</b>.</li>
+	    <li>Market participants estimate the amount of private information in each trade (as opposed to those trading on noise or for liquidity reasons).</li>
+	    <li>The greater the estimated amount of private information, the greater the price impact of the trade.</li>
+	  </ul>
+
+
 	</section>
+	
+	<section>
+	  <h3>Public Information</h3>
+
+	  <ul>
+	    <li>Price adjustments to <b class="fragment highlight-red">public information</b> can be made by changes in the <b class="fragment highlight-red">bid and offer prices</b>.</li>
+	    <li>Trades may affect the ultimate reaction, and speed with which it occurs.</li>
+	  </ul>
+
+	  </section>
+
+	<section>
+	  <h3>Kyle's Model</h3>
+
+	  <p align="left">Kyle (1985) formally models the trading strategy of a trader with private information, who attempts to trade in a way to maximize profits from this information.</p>
+
+	  <ul>
+	    <li>Within the model a parameter, $\lambda$ is determined which measures market depth.</li>
+	    <li>Specifically <b class="fragment highlight-blue">$\frac{1}{\lambda}$</b> measures the <b class="fragment highlight-blue">orderflow (in <span>$</span>) necessary to increase/decrease the price by <span>$</span>1</b>.</li>
+	  </ul>
+	</section>
+	
+	<section>
+	  <h3>Estimation</h3>
+
+<p align="left">To estimate $\lambda$ we use:</p>
+
+$\lambda = \frac{|\Delta(price)|}{volume\ in\ \$}$
+
+	  <p align="left">rearranging this formula affords:</p>
+
+$|\Delta(price)| = \lambda(volume\ in\ \$)$
+
+	  <p align="left">We can thus estimate $\lambda$ via the following regression equation:</p>
+
+	  <b class="fragment highlight-blue">$|\Delta(price)_t| = \alpha + \lambda(volume\ in\ \$)_t + e_t$</b>
+
+</section>
+	</section>
+
+
+
+
 
 <section>
   <h2>HFT</h2>
