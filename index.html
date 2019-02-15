@@ -139,9 +139,9 @@
 
 <section>
   <section>
-    <h3>Review</h3>
-    
+    <h1>Review</h1>
   </section>
+  
   <!-- from https://github.com/Matt-Brigida/fin_532_market_depth/blob/master/index.html-->
   <section>
     <h3>Thoughts on Private Information</h3>
@@ -194,10 +194,6 @@
   </section>
 </section>
 
-
-
-
-
 <section>
 <section>
   <h1>A Brief HFT Strategy Overview</h1>
@@ -205,7 +201,6 @@
  
  <section>
    <h3>Types</h3>
- </section>
  <ul>
    <li>Liquidity Providing</li>
    <li>Opportunistic</li>
@@ -221,30 +216,29 @@
   <h3>Opportunistic</h3>
   <p align="left">Often employ momentum trading strategies, or trade based on low latency reaction to events. They stil rarely cross the spread.</p>
 </section>
-<section>
-
 </section>
 
 <!-- Reactive Liquidity Results -->
 
 <section>
   <section>
-    <h3>Algorithmic Reaction to Trades</h3>
+    <h3>A Look at Algorithmic Reaction to Trades</h3>
     <p align="left">Is liquidity really there?  In modern markets this cannot be adequately answered even ex-post given the speed with which <b class="highlight-current red">high-frequency traders (HFT) can remove liquidity</b> in response to a market event.</p>
 
     <p align="left">Would that same liquidity have been there if you flashed an order or if someone had executed a trade?</p>
 
     <p align="left">O'Hara (2015): as many as 98% of all orders are subsequently cancelled instead of being executed as trades</p>
   </section>
+  
   <section>
-
     <p align="left">Trade criteria:</p>
 
     <ul>
       <li>The trade had to be for <span class="highlight current-red">5 or fewer</span> contracts.</li>
       <li>No trades in the following 100 ms.</li>
     </ul>
-
+  </section>
+  
     <section>
       <h3>Method</h3>
       
@@ -255,7 +249,6 @@
     </section>
     
   </section>
-</section>
 
 
 
@@ -361,6 +354,48 @@
   <section>
     <h3>LSTM Time Series Prediction</h3>
     
+  </section>
+  <section>
+    <!-- insert chart of pred error -->
+  </section>
+  <section>
+    <h3>Signal Based on Prediction Error</h3>
+
+    Downside no obvious threshold.
+  </section>
+</section>
+
+<section>
+  <section>
+    <h1>LSTM Vs MS Switching Results</h1>    
+  </section>
+  <!-- insert plot -->
+<section data-background-image="./code_image.jpg">
+  <div class="stretch">
+    <iframe src="./graphics/pred_error_vs_state.html" height="100%" width="100%"></iframe>
+  </div>
+</section>
+
+    <section>
+      <pre><code data-trim data-noescape>	  
+### lets look at the correlation between signals------
+
+pred_error_signal <- 1 * (abs(pred_error) > .1)
+state_prob_signal <- 1 * ((1 - state_prob) > .9)
+
+cor.test(pred_error_signal, state_prob_signal)
+
+## 	Pearson's product-moment correlation
+
+## data:  pred_error_signal and state_prob_signal
+## t = 152.92, df = 99999, p-value < 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.4303024 0.4403491
+## sample estimates:
+##       cor 
+## 0.4353393 
+</code></pre>
   </section>
 </section>
 	
