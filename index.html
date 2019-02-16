@@ -252,7 +252,24 @@
 
 <section>
   <section>
-    <h3>Our Goal:  Thinking with Data</h3>
+    <h2>Thinking With Data</h2>
+  </section>
+  
+  <section>
+    <h3>Algo Classification</h3>
+
+    <p align="left">Hasbrouck (2016) (High-Frequency Quoting) used variance ratio tests as evidence of algorithmic trading.  His method was ex-post.</p>
+    <ul>
+      <li>It found evidence of very fast (independent) changes in the bid/offer.</li>
+      <li>Method used cannot be modified to identify the activity on-the-fly.</li>
+    </ul>
+
+  </section>
+
+  <section>
+        <h3>My In-Process Research</h3>
+  </section>
+    <section>
 
     <p align="left"><span class="fragment highlight-current-red">Changing liquidity is a greater cost for slower traders</span>.  If we can identify periods with particularly volatile liquidity we can create trading <span class="fragment highlight-current-green">mechanisms whereby slower traders liquidity taking orders are canceled/delayed until liquidity is less volatile</span>.</p>
 
@@ -270,23 +287,21 @@
     -  An idea, similar in spirit though different in structure (they target moving prices not bid/offer volatility) <a href="https://iextrading.com/docs/The%20Evolution%20of%20the%20Crumbling%20Quote%20Signal.pdf">is being implemented by the IEX</a>.
     
   </section>
+</section>
+
 
   <section>
-    <h3>Algo Classification</h3>
-
-    <p align="left">Hasbrouck (2016) (High-Frequency Quoting) used variance ratio tests as evidence of algorithmic trading.  His method was ex-post.  It found evidence of very fast (independent) changes in the bid/offer, but the method used cannot be modified to identify the activity on-the-fly.</p>
-
+  <section>
+    <h2>Markov-Regime Switching Regression Approach</h2>
   </section>
-
   <section>
     <h3>Real-Time Classification</h3>
 
     <p align="left">I attempt to identify the presence of algorithms by including thier presence as a latent variable in a Markov-Switching regression---an <b class="fragment highlight-green">unsupervised learning approach</b></p>
 
   </section>
-</section>
 
-<section>
+
   <section>
     <h3>Varying Liquidity</h3>
     <p align="left">I measure liquidity on each side of the book as the amount of ES that can be bought within one point of the present bid-ask midpoint. </p>
@@ -361,6 +376,12 @@
 
     Downside no obvious threshold.
   </section>
+  <section>
+    <h3>Neural Net Graph (from Tensorboard)</h3>
+		  <div class="stretch">
+		    <iframe src="./graphics/lstm_graph.png" height="100%" width="100%"></iframe>
+		  </div>
+		</section>
 </section>
 
 <section>
