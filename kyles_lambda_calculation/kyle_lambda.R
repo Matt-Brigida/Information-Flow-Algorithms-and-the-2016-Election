@@ -86,7 +86,9 @@ lik <- function(theta, volume, price){
 }
 
 theta.start <- c(0.01, 0.01, 0.1, 0.1)
-max.lik.optim <- optim(theta.start, lik, volume=volume, price=price, hessian = FALSE)
+## max.lik.optim <- optim(theta.start, lik, volume=volume, price=price, hessian = FALSE)
+
+max.lik.optim <- readRDS("./max.lik.optim.rds")
 
 ## Run though filter to get betas
 
@@ -120,12 +122,12 @@ beta_tt <- rep(0, length(volume))
     }
     logl <- -0.5*sum(log((((2*pi)^length(volume))*abs(f))[-1]))-.5*sum(eta*eta*(1/f),na.rm=T)
 
-library(highcharter)
-
+htmlwidgets::saveWidget(
 hchart(as.xts(100 / beta_tt, order.by = index(change_trade_price_minute)[-1])) %>%
     hc_add_theme(hc_theme_db()) %>%
     hc_title(text = "Volume Required to Move ESZ6 by 1 Point") %>%
-    hc_subtitle(text = "Kalman Filtered Estimate")
+hc_subtitle(text = "Kalman Filtered Estimate"),
+"kalman_filtered_beta.html")
     
 
 
