@@ -132,7 +132,7 @@
   
   <!-- from https://github.com/Matt-Brigida/fin_532_market_depth/blob/master/index.html-->
   <section>
-    <h3>Thoughts on Private Information</h3>
+    <h3>Private Information</h3>
 
     <ul>
       <li>Trades are the method by which <b class="fragment highlight-green">private information</b> is incorporated into <b class="fragment highlight-green">prices</b>.</li>
@@ -177,11 +177,11 @@
   </section>
 
 
-    		<section data-background-image="./code_image.jpg">
-		  <div class="stretch">
-		    <iframe src="./kyles_lambda_calculation/kalman_filtered_beta.html" height="100%" width="100%"></iframe>
-		  </div>
-		</section>
+  <section data-background-image="./code_image.jpg">
+    <div class="stretch">
+      <iframe src="./kyles_lambda_calculation/kalman_filtered_beta.html" height="100%" width="100%"></iframe>
+    </div>
+  </section>
 
   
 </section>
@@ -202,11 +202,19 @@
 <section>
   <h3>Liquidity Providing</h3>
   <p align="left">HFT serve a market making function in modern markets.  This function has allowed the creation of new exchanges.  HFT that serve as market makers may not have all the regulations of official market makers.</p>
+  <ul>
+    <li>There is evidence the majority of HFT serve as liquidity providers.</li>
+  </ul>
 </section>
 
 <section>
   <h3>Opportunistic</h3>
   <p align="left">Often employ momentum trading strategies, or trade based on low latency reaction to events. They stil rarely cross the spread.</p>
+
+  <ul>
+    <li>Likely the minority of HFT.</li>
+  </ul>
+
 </section>
 </section>
 
@@ -236,7 +244,12 @@
   
     <section>
       <h3>Method</h3>
-      
+      <p align="left">We calculate the change in liquidity in the 100 ms after each trade, and regress this on 3 measures of market activity pre-trade.  The three pre-trades measures are:</p>      
+      <ul>
+	<li>The average bid/ask spread.</li>
+	<li>The number of trades.</li>
+	<li>The number of book changes.</li>
+      </ul>
     </section>
 
     <section>
@@ -261,6 +274,11 @@
     </div>
   </section>
 
+  <section>
+    <!--- add summary here; look at regression results-->
+  </section>
+
+
   </section>
 
 
@@ -276,17 +294,18 @@
     <p align="left">Hasbrouck (2016) (High-Frequency Quoting) used variance ratio tests as evidence of algorithmic trading.  His method was ex-post.</p>
     <ul>
       <li>It found evidence of very fast (independent) changes in the bid/offer.</li>
+      <li><span class="fragment highlight-current-red">Changing liquidity is a greater cost for slower traders</span>.</li>
       <li>Method used cannot be modified to identify the activity on-the-fly.</li>
     </ul>
 
   </section>
 
   <section>
-        <h3>My In-Process Research</h3>
+        <h3>Idea</h3>
   </section>
     <section>
 
-    <p align="left"><span class="fragment highlight-current-red">Changing liquidity is a greater cost for slower traders</span>.  If we can identify periods with particularly volatile liquidity we can create trading <span class="fragment highlight-current-green">mechanisms whereby slower traders liquidity taking orders are canceled/delayed until liquidity is less volatile</span>.</p>
+    <p align="left">If we can identify periods with particularly volatile liquidity we can create trading <span class="fragment highlight-current-green">mechanisms whereby slower traders liquidity taking orders are canceled/delayed until liquidity is less volatile</span>.</p>
 
     <p align="left">High-latency (retail) may not even notice the delay.  It would save each retail trader a fraction of a cent on each share, but across all retain trades this would be considerable savings.</p>
 
@@ -419,7 +438,32 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
       </code></pre>    
   </section>
   
-  <!-- Add Kalman and MS Approach results -->
+  <section>
+    <h3>Results</h3>
+       \[
+      Liq_t =
+      \begin{cases}
+      -0.83 + 0.49 Liq_{t-1} + \epsilon_1, \ \ \ \epsilon_1 \sim N(0, 0.47)    \\
+      0 + 1 Liq_{t-1} + \epsilon_2, \ \ \ \epsilon_2 \sim N(0, 0.002)    \\
+      \end{cases}
+       \]
+  </section>
+
+  <section>
+    <h3>Results</h3>
+    <ul>
+      <li>The model is only picking up states of changing liquidity and stable liquidity.</li>
+      <li>Ex-post this makes sense.</li>
+      <li>This motivates a 3 state model:
+	<ol>
+	  <li>stable liquidity</li>
+	  <li>normal changing liquidity</li>
+	  <li>changing liquidity due to HFT</li>
+	</ol>
+      </li>
+    </ul>
+  </section>
+ 
 
   <section data-background-image="./code_image.jpg">
     <div class="stretch">
