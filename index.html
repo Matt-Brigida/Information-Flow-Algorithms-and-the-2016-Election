@@ -408,8 +408,8 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
   o << 1 << 1;
   
   arma::mat P;
-  P << p11 << 1 - p11 << arma::endr
-    << 1 - p22 << p22 << arma::endr;
+  P << p11 << 1 - p22 << arma::endr
+    << 1 - p11 << p22 << arma::endr;
   
   int length_lnoil = lnoil.n_elem;
   
