@@ -19,7 +19,7 @@ trade_size_dollars <- bookNov9ES$tradeSize * (bookNov9ES$price / 100) * 50
 ## get minute bid/ask data--------
 
 trade_size_dollars_minute <- xts::to.minutes(trade_size_dollars)[, 4]
-change_trade_price_minute <- diff(xts::to.minutes(bookNov9ES$price)[, 4])
+change_trade_price_minute <- diff(xts::to.minutes(bookNov9ES$price / 100)[, 4])
 ## trade_size_minute <- xts::to.minutes(bookNov9ES$tradeSize)
 # bid_minute <- xts::to.minutes(bookNov9ES$bidP1)
 # offer_minute <- xts::to.minutes(bookNov9ES$offerP1)
@@ -86,9 +86,9 @@ lik <- function(theta, volume, price){
 }
 
 theta.start <- c(0.01, 0.01, 0.1, 0.1)
-## max.lik.optim <- optim(theta.start, lik, volume=volume, price=price, hessian = FALSE)
+max.lik.optim <- optim(theta.start, lik, volume=volume, price=price, hessian = FALSE)
 
-max.lik.optim <- readRDS("./max.lik.optim.rds")
+## max.lik.optim <- readRDS("./max.lik.optim.rds")
 
 ## Run though filter to get betas
 
