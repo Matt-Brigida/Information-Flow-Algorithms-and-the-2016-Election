@@ -52,7 +52,7 @@
 	    <h2>Information Flow, Algorithms, and the 2016 Election</h2>
 	    <br>
 	    <p> MATT BRIGIDA </p>
-	    <p> Associate Professor of Finance (SUNY Polytechnic Institute)</p>
+	    <p>Associate Professor of Finance (SUNY Polytechnic Institute)</p>
 	    <p>Advisor, Milken Institute Center for Financial Markets</p>
 	  </section>
 	</section>
@@ -103,25 +103,25 @@
 	  <!-- </section> -->
 		<section>
 	  <h3>Clock vs Market Time</h3>
-	  <p align="left">In the following plots we;ll take a look at the data.  When looking at them it is important to note that the plots are in "market" vs clock time.</p>
+	  <p align="left">In the following plots we'll take a look at the data.  When looking at them it is important to note that the plots are in <span class="fragment highlight-current-green">market vs clock time</span>.</p>
 	</section>
 </section>
 
 <section>
-<section>
-  <h2>A Look at the Data</h2>
-</section>
-		<section data-background-image="./code_image.jpg">
-		  <div class="stretch">
-		    <iframe src="./graphics/minute_trades_price.html" height="100%" width="100%"></iframe>
-		  </div>
-		</section>
+  <section>
+    <h2>A Look at the Data</h2>
+  </section>
+  <section data-background-image="./code_image.jpg">
+    <div class="stretch">
+      <iframe src="./graphics/minute_trades_price.html" height="100%" width="100%"></iframe>
+    </div>
+  </section>
 
-		<section data-background-image="./code_image.jpg">
-		  <div class="stretch">
-		    <iframe src="./graphics/bbo_trades_chart.html" height="100%" width="100%"></iframe>
-		  </div>
-		</section>
+  <section data-background-image="./code_image.jpg">
+    <div class="stretch">
+      <iframe src="./graphics/bbo_trades_chart.html" height="100%" width="100%"></iframe>
+    </div>
+  </section>
 </section>
 
 
@@ -491,12 +491,13 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
 
   <section>
     <h3>Results: 3 State Model</h3>
+    <!-- neat, second state is quickly changing liquidity with no change in BAM-->
        \[
       Liq_t =
       \begin{cases}
-      -0.83 + 0.49 Liq_{t-1} + \epsilon_1, \ \ \ \epsilon_1 \sim N(0, 0.47)    \\
-      0 + 1 Liq_{t-1} + \epsilon_2, \ \ \ \epsilon_2 \sim N(0, 0.002)    \\
-      0 + 1 Liq_{t-1} + \epsilon_2, \ \ \ \epsilon_2 \sim N(0, 0.002)    \\
+    -0.00 + 1 Liq_{t-1} -0.12 \Delta BAM + \epsilon_1, \ \ \ \epsilon_1 \sim N(0, 0.004)    \\
+      -0.01 + 0.32 Liq_{t-1} + 0.004 \Delta BAM + \epsilon_2, \ \ \ \epsilon_2 \sim N(0, 0.40)    \\
+      -0.09 + 0.22 Liq_{t-1} + 1.02 \Delta BAM + \epsilon_2, \ \ \ \epsilon_2 \sim N(0, 0.2929)    \\
       \end{cases}
        \]
   </section>
