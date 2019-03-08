@@ -476,18 +476,18 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
   </section>
  
 
-  <section data-background-image="./code_image.jpg">
-    <div class="stretch">
-      <iframe src="./graphics/state_2_prob.html" height="100%" width="100%"></iframe>
-    </div>
-  </section>
+  <!-- <section data-background-image="./code_image.jpg"> -->
+  <!--   <div class="stretch"> -->
+  <!--     <iframe src="./graphics/state_2_prob.html" height="100%" width="100%"></iframe> -->
+  <!--   </div> -->
+  <!-- </section> -->
 
 
-  <section data-background-image="./code_image.jpg">
-    <div class="stretch">
-      <iframe src="./graphics/state_density.html" height="100%" width="100%"></iframe>
-    </div>
-  </section>
+  <!-- <section data-background-image="./code_image.jpg"> -->
+  <!--   <div class="stretch"> -->
+  <!--     <iframe src="./graphics/state_density.html" height="100%" width="100%"></iframe> -->
+  <!--   </div> -->
+  <!-- </section> -->
 
   <section>
     <h3>Results: 3 State Model</h3>
@@ -501,6 +501,20 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
       \end{cases}
        \]
   </section>
+
+    <section data-background-image="./code_image.jpg">
+    <div class="stretch">
+      <iframe src="./graphics/state_2_from_3_state_prob.html" height="100%" width="100%"></iframe>
+    </div>
+    </section>
+
+  <!-- also put the state denity plot -->
+    <section data-background-image="./code_image.jpg">
+    <div class="stretch">
+      <iframe src="./graphics/state2_density_ESZ6_nov_9_2016.html" height="100%" width="100%"></iframe>
+    </div>
+    </section>
+
 
   </section>
 
@@ -542,7 +556,7 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
   <!-- insert plot -->
 <section data-background-image="./code_image.jpg">
   <div class="stretch">
-    <iframe src="./graphics/pred_error_vs_state3_scaled.html" height="100%" width="100%"></iframe>
+    <iframe src="./graphics/pred_error_vs_state2_from_3.html" height="100%" width="100%"></iframe>
   </div>
 </section>
 
@@ -554,28 +568,21 @@ pred_error_signal <- 1 * (abs(pred_error) > .1)
 state_prob_signal <- 1 * ((1 - state_prob) > .01)
 
 cor.test(pred_error_signal, state_prob_signal)
-# 	Pearson's product-moment correlation
-# 
-# data:  pred_error_signal and state_prob_signal
-# t = 66.71, df = 99999, p-value < 2.2e-16
-# alternative hypothesis: true correlation is not equal to 0
-# 95 percent confidence interval:
-#  0.2004720 0.2123398
-# sample estimates:
-#       cor 
-# 0.2064135 
+## 	Pearson's product-moment correlation
+
+## data:  pred_error_signal and state_prob_signal
+## t = 110.56, df = 99999, p-value < 2.2e-16
+## alternative hypothesis: true correlation is not equal to 0
+## 95 percent confidence interval:
+##  0.3245093 0.3355549
+## sample estimates:
+##       cor 
+## 0.3300434 
 
 </code></pre>
   </section>
 </section>
 	
-
-<!-- Insert App -->
-<!-- <section data-background-image="./code_image.jpg"> -->
-<!--   <div class="stretch"> -->
-<!--     <iframe src="https://micfm.shinyapps.io/limit_order_book_app1/" height="100%" width="100%"></iframe> -->
-<!--   </div> -->
-<!-- </section> -->
 
 <section>
   <h4>References</h4>
