@@ -179,7 +179,7 @@
 
   <section data-background-image="./code_image.jpg">
     <div class="stretch">
-      <iframe src="./kyles_lambda_calculation/kalman_filtered_beta.html" height="100%" width="100%"></iframe>
+      <iframe src="./kyles_lambda_calculation/new_kalman_filtered_beta_1_tick.html" height="100%" width="100%"></iframe>
     </div>
   </section>
 
@@ -212,7 +212,7 @@
   <h3>Liquidity Providing</h3>
   <p align="left">HFT serve a market making function in modern markets.  This function has allowed the creation of new exchanges.  HFT that serve as market makers may not have all the regulations of official market makers.</p>
   <ul>
-    <li>There is evidence the majority of HFT serve as liquidity providers.</li>
+    <li>There is <span class="fragment highlight-current-green">evidence the majority of HFT serve as liquidity providers</span>.</li>
   </ul>
 </section>
 
@@ -495,11 +495,20 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
        \[
       Liq_t =
       \begin{cases}
-    -0.00 + 1 Liq_{t-1} -0.12 \Delta BAM + \epsilon_1, \ \ \ \epsilon_1 \sim N(0, 0.004)    \\
-      -0.01 + 0.32 Liq_{t-1} + 0.004 \Delta BAM + \epsilon_2, \ \ \ \epsilon_2 \sim N(0, 0.40)    \\
-      -0.09 + 0.22 Liq_{t-1} + 1.02 \Delta BAM + \epsilon_2, \ \ \ \epsilon_2 \sim N(0, 0.2929)    \\
+    -0.00 + 1 Liq_{t-1} -0.12 \Delta BAM + \epsilon_1 \\
+      -0.01 + 0.32 Liq_{t-1} + 0.004 \Delta BAM + \epsilon_2 \\
+      -0.09 + 0.22 Liq_{t-1} + 1.02 \Delta BAM + \epsilon_2 \\
       \end{cases}
-       \]
+    \]
+    <br>
+						  \[
+						  \texttt{where}
+    \begin{cases}
+\epsilon_1 \sim N(0, 0.004)    \\	     
+ \epsilon_2 \sim N(0, 0.40)    \\     
+ \epsilon_2 \sim N(0, 0.2929)    \\
+    \end{cases}
+    \]
   </section>
 
     <section data-background-image="./code_image.jpg">
