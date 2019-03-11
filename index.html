@@ -66,18 +66,18 @@
 	    <h3>E-Mini S&P 500 Futures</h3>
 
 	    <ul>
-	      <li>Trading hours from Sunday--Friday 6:00 p.m. - 5:00 p.m. Eastern Time (ET)</li>
-	      <li>Contract value is $50 times the futures price.</li>
-	      <li>Cash delivery with expirations every 3 months.</li>
-	      <li>Traded on the Chicago Mercantile Exchange (CME) (pit and electronic (Globex)).</li>
-	      <li>Stock market price discovery occurs in this market. </li>
+	      <li><span class="fragment highlight-current-blue">Trading hours from Sunday--Friday 6:00 p.m. - 5:00 p.m. Eastern Time (ET)</span></li>
+	      <li><span class="fragment highlight-current-blue">Contract value is $50 times the futures price.</span></li>
+	      <li><span class="fragment highlight-current-blue">Cash delivery with expirations every 3 months</span>.</li>
+	      <li><span class="fragment highlight-current-blue">Traded on the Chicago Mercantile Exchange (CME) (pit and electronic (Globex)).</span></li>
+	      <li><span class="fragment highlight-current-green">Stock market price discovery occurs in this market.</span></li>
 	    </ul>
 	  </section>
 
 	  <section>
 	    <p align="left">Data are <a href="http://www.cmegroup.com/confluence/display/EPICSANDBOX/Market%2BDepth">Market Depth Data</a> for E-Mini S7P 500 futures (Globex) purchased directly from the CME.</p>
 	    <ul>
-	      <li>Market Depth Data contains all market messages (trade/limit order updates) to and from the CME, and is time-stamped to the nanosecond. Also tags agressorside.</li>
+	      <li>Market Depth Data contains <span class="fragment highlight-current-green">all market messages (trade/limit order updates) to and from the CME, and is time-stamped to the nanosecond</span>. Also tags agressor side.</li>
 	      <li>Can recreate the ES orderbook up to 10 levels deep. </li>
 	    </ul> 
 
@@ -97,7 +97,7 @@
 	      <li>All trades and quotes take place in this one central book</li>
 	      <li>No delay in orders due to location</li>
 	      <li>Heavily traded.</li>
-	      <li>Equity market price discovery occurs in ES.</li>
+	      <!-- <li>Equity market price discovery occurs in ES.</li> -->
 	    </ul>.  
 	  </section>
 	  <!-- </section> -->
@@ -296,7 +296,7 @@
 
 <section>
   <section>
-    <h2>Thinking With Data</h2>
+    <h2><span class="fragment highlight-current-green">Thinking With Data</span></h2>
   </section>
   
   <section>
@@ -318,17 +318,17 @@
 
     <p align="left">If we can identify periods with particularly volatile liquidity we can create trading <span class="fragment highlight-current-green">mechanisms whereby slower traders liquidity taking orders are canceled/delayed until liquidity is less volatile</span>.</p>
 
-    <p align="left">High-latency (retail) may not even notice the delay.  It would save each retail trader a fraction of a cent on each share, but across all retain trades this would be considerable savings.</p>
+    <p align="left">High-latency (retail) would not notice the delay.  It would save each retail trader a fraction of a cent on each share, but across all retain trades this would be considerable savings.</p>
 
   </section>
   
   <section>
     
-    <p align="left">Because of the low-latency nature of the data, these are necessarily automated rules (estimate liquidity volatility over the next few milliseconds and optinally delay givem the results).</p>
+    <p align="left">Because of the low-latency nature of the data, these are necessarily automated rules (estimate liquidity volatility over the next few milliseconds and potentially delay given the results).</p>
 
     <ul>
-      <li>Identification would have to be quick (estimate and forecast models in milliseconds).</li>
-      <li>An idea, similar in spirit though different in structure (they target moving prices not bid/offer volatility) <a href="https://iextrading.com/docs/The%20Evolution%20of%20the%20Crumbling%20Quote%20Signal.pdf">is being implemented by the IEX</a>.</li>
+      <li>Identification would have to be quick (forward pass through models in milliseconds).</li>
+      <li><span class="fragment highlight-current-green"><a href="https://iextrading.com/docs/The%20Evolution%20of%20the%20Crumbling%20Quote%20Signal.pdf">A similar idea is being implemented by the IEX</a></span>. Their signal identifies an imminent chance in the bid/ask midpoint by monitoring bid/ask prices across stock exchanges.</li>
     </ul>
     
   </section>
@@ -388,7 +388,7 @@
   </section>
 
   <section>
-    <h3>Code</h3>
+    <h3>Example Code</h3>
 
       <pre><code data-trim data-noescape>	  
 double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, NumericVector change_bam_) {
@@ -495,7 +495,7 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
        \[
       Liq_t =
       \begin{cases}
-    -0.00 + 1 Liq_{t-1} -0.12 \Delta BAM + \epsilon_1 \\
+      -0.00 + 1 Liq_{t-1} -0.12 \Delta BAM + \epsilon_1 \\
       -0.01 + 0.32 Liq_{t-1} + 0.004 \Delta BAM + \epsilon_2 \\
       -0.09 + 0.22 Liq_{t-1} + 1.02 \Delta BAM + \epsilon_2 \\
       \end{cases}
@@ -524,6 +524,10 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
     </div>
     </section>
 
+    <section>
+      <h3><span class="fragment highlight-current-blue">4 States?</span></h3>
+    </section>
+
 
   </section>
 
@@ -540,6 +544,7 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
       <p align="left">We can use a prediction error above a particular threshold as our algo indicator.</p>
       <ul>
 	<li>Downside no obvious threshold other than a confidence interval.</li>
+	<li>Must establish a link between the prediction error and algo activity.</li>
       </ul>
     </section>
     <section>
@@ -574,7 +579,7 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
 ### lets look at the correlation between signals------
 
 pred_error_signal <- 1 * (abs(pred_error) > .1)
-state_prob_signal <- 1 * ((1 - state_prob) > .01)
+state_prob_signal <- 1 * ((1 - state_prob) > .5)
 
 cor.test(pred_error_signal, state_prob_signal)
 ## 	Pearson's product-moment correlation
