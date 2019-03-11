@@ -39,7 +39,7 @@
     <div class="reveal">
       <div class="slides">
 	<section>
-	  <section data-background-image="city_skyline.jpg">
+	  <section data-background-image="./city_skyline.jpg">
 	    <h2>Competitive Adjustment to New Information at High-Frequency: The 2016 Election Results</h2>
 	    <br>
 	    <br>
@@ -87,7 +87,6 @@
 	    <ul>
 	      <li>The data are encoded in the <a href="http://www.cmegroup.com/confluence/download/attachments/62816403/Legacy\%2520FIX-FAST\%2520Market\%2520Dta\%2520Message\%2520Specification.pdf?version=2&modificationDate=1452872661000&api=v2">CME's FIX/FAST message specification</a>.</li>
 	      <li>The translation scripts used in this analysis <a href="https://github.com/Matt-Brigida/CME-FIX-FAST-Translator">are available here</a>.</li>
-	      <li></li>
 	    </ul>
 	  </section>
 
@@ -152,7 +151,7 @@
   <section>
     <h3>Kyle's Model</h3>
 
-    <p align="left">Kyle (1985) formally models the trading strategy of a trader with private information, who attempts to trade in a way to maximize profits from this information.</p>
+    <p align="left"><a href="https://scholar.google.com/scholar?cluster=16196574577296518177&hl=en&as_sdt=0,33">Kyle (1985)</a> formally models the trading strategy of a trader with private information, who attempts to trade in a way to maximize profits from this information.</p>
 
     <ul>
       <li>Within the model a parameter, $\lambda$ is determined which measures market depth.</li>
@@ -201,7 +200,7 @@
 </section>
  
  <section>
-   <h3>Types</h3>
+   <h3>Broad Types of HFT</h3>
  <ul>
    <li><span class="fragment highlight-current-green">Liquidity Providing</span></li>
    <li><span class="fragment highlight-current-red">Opportunistic</span></li>
@@ -240,7 +239,7 @@
     <p align="left">Is liquidity really there?  In modern markets this cannot be adequately answered even ex-post given the speed with which <b class="fragment highlight-red">high-frequency traders (HFT) can remove liquidity</b> in response to a market event.</p>
     <ul>
       <li>Would that same liquidity have been there <span class="fragment highlight-green">if you flashed an order or if someone had executed a trade?</span></li>
-      <li>O'Hara (2015): as many as 98% of all orders are subsequently cancelled instead of being executed as trades</li>
+      <li><a href="https://scholar.google.com/scholar?cluster=7729580102013955295&hl=en&as_sdt=0,33">O'Hara (2015)</a>: as many as 98% of all orders are subsequently cancelled instead of being executed as trades</li>
     </ul>
   </section>
   
@@ -302,7 +301,7 @@
   <section>
     <h3>Algo Classification</h3>
 
-    <p align="left">Hasbrouck (2016) (High-Frequency Quoting) used variance ratio tests as evidence of algorithmic trading.  His method was ex-post.</p>
+    <p align="left"><a href="https://scholar.google.com/scholar?cluster=4756032465906689647&hl=en&as_sdt=0,33">Hasbrouck (2016) (High-Frequency Quoting)</a> used variance ratio tests as evidence of algorithmic trading.  His method was ex-post.</p>
     <ul>
       <li>It found evidence of very fast (independent) changes in the bid/offer.</li>
       <li><span class="fragment highlight-current-red">Changing liquidity is a greater cost for slower traders</span>.</li>
@@ -598,19 +597,19 @@ cor.test(pred_error_signal, state_prob_signal)
 </section>
 	
 
-<section>
-  <h4>References</h4>
-  @article{o2015high,
-  title={High frequency market microstructure},
-  author={O’Hara, Maureen},
-  journal={Journal of Financial Economics},
-  volume={116},
-  number={2},
-  pages={257--270},
-  year={2015},
-  publisher={Elsevier}
-}
-</section>
+<!-- <section> -->
+<!--   <h4>References</h4> -->
+<!--   @article{o2015high, -->
+<!--   title={High frequency market microstructure}, -->
+<!--   author={O’Hara, Maureen}, -->
+<!--   journal={Journal of Financial Economics}, -->
+<!--   volume={116}, -->
+<!--   number={2}, -->
+<!--   pages={257--270}, -->
+<!--   year={2015}, -->
+<!--   publisher={Elsevier} -->
+<!-- } -->
+<!-- </section> -->
 
 
 
