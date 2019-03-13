@@ -38,20 +38,23 @@
   <body>
     <div class="reveal">
       <div class="slides">
+
 	<section>
 	  <section data-background-image="./city_skyline.jpg">
 	    <h2>Competitive Adjustment to New Information at High-Frequency: The 2016 Election Results</h2>
-	    <br>
-	    <br>
-	    <br>
-	    <br>
-	    <br>
-	    <br>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
 	  </section>
+
 	  <section>
-	    <h2>Information Flow, Algorithms, and the 2016 Election</h2>
+<!---	    <h2>Information Flow, Algorithms, and the 2016 Election</h2>
 	    <br>
-	    <p> MATT BRIGIDA </p>
+	    <p> MATT BRIGIDA </p>-->
+	    <h2> MATT BRIGIDA </h2>
 	    <p>Associate Professor of Finance (SUNY Polytechnic Institute)</p>
 	    <p>Advisor, Milken Institute Center for Financial Markets</p>
 	  </section>
@@ -79,7 +82,7 @@
 	    <ul>
 	      <li>Market Depth Data contains <span class="fragment highlight-current-green">all market messages (trade/limit order updates) to and from the CME, and is time-stamped to the nanosecond</span>. Also tags agressor side.</li>
 	      <li>Can recreate the ES orderbook up to 10 levels deep. </li>
-	    </ul> 
+	    </ul>
 
 	  </section>
 
@@ -95,9 +98,9 @@
 	    <ul>
 	      <li>All trades and quotes take place in this one central book</li>
 	      <li>No delay in orders due to location</li>
-	      <li>Heavily traded.</li>
+	      <li>Heavily traded</li>
 	      <!-- <li>Equity market price discovery occurs in ES.</li> -->
-	    </ul>.  
+	    </ul>
 	  </section>
 	  <!-- </section> -->
 		<section>
@@ -128,7 +131,7 @@
   <section>
     <h2>Review</h2>
   </section>
-  
+
   <!-- from https://github.com/Matt-Brigida/fin_532_market_depth/blob/master/index.html-->
   <section>
     <h3>Private Information</h3>
@@ -139,7 +142,7 @@
       <li>The greater the estimated amount of private information, the greater the price impact of the trade.</li>
     </ul>
   </section>
-  
+
   <section>
     <h3>Public Information</h3>
     <ul>
@@ -158,7 +161,7 @@
       <li>Specifically <b class="fragment highlight-blue">$\frac{1}{\lambda}$</b> measures the <b class="fragment highlight-blue">orderflow (in <span>$</span>) necessary to increase/decrease the price by <span>$</span>1</b>.</li>
     </ul>
   </section>
-  
+
   <section>
     <h3>Estimation</h3>
 
@@ -182,7 +185,7 @@
     </div>
   </section>
 
-  
+
 </section>
 
 <section>
@@ -196,9 +199,9 @@
     <li><span class="fragment highlight-current-green">Liquidity</span></li>
     <li><span class="fragment highlight-current-green">Price Discovery</span></li>
   </ul>
-  
+
 </section>
- 
+
  <section>
    <h3>Broad Types of HFT</h3>
  <ul>
@@ -242,7 +245,7 @@
       <li><a href="https://scholar.google.com/scholar?cluster=7729580102013955295&hl=en&as_sdt=0,33">O'Hara (2015)</a>: as many as 98% of all orders are subsequently cancelled instead of being executed as trades</li>
     </ul>
   </section>
-  
+
   <section>
     <p align="left">Trade criteria:</p>
 
@@ -251,10 +254,10 @@
       <li>No trades in the following 100 ms.</li>
     </ul>
   </section>
-  
+
     <section>
       <h3>Method</h3>
-      <p align="left">We calculate the change in liquidity in the 100 ms after each trade, and regress this on 3 measures of market activity pre-trade.  The three pre-trades measures are:</p>      
+      <p align="left">We calculate the change in liquidity in the 100 ms after each trade, and regress this on 3 measures of market activity pre-trade.  The three pre-trades measures are:</p>
       <ul>
 	<li>The average bid/ask spread.</li>
 	<li>The number of trades.</li>
@@ -265,7 +268,7 @@
     <section>
       <h3>Results</h3>
     </section>
-    
+
   <section data-background-image="./code_image.jpg">
     <div class="stretch">
       <iframe src="./graphics/bid_num_book_changes.html" height="100%" width="100%"></iframe>
@@ -297,7 +300,7 @@
   <section>
     <h2><span class="fragment highlight-current-green">Thinking With Data</span></h2>
   </section>
-  
+
   <section>
     <h3>Algo Classification</h3>
 
@@ -320,16 +323,16 @@
     <p align="left">High-latency (retail) would not notice the delay.  It would save each retail trader a fraction of a cent on each share, but across all retain trades this would be considerable savings.</p>
 
   </section>
-  
+
   <section>
-    
+
     <p align="left">Because of the low-latency nature of the data, these are necessarily automated rules (estimate liquidity volatility over the next few milliseconds and potentially delay given the results).</p>
 
     <ul>
       <li>Identification would have to be quick (forward pass through models in milliseconds).</li>
-      <li><span class="fragment highlight-current-green"><a href="https://iextrading.com/docs/The%20Evolution%20of%20the%20Crumbling%20Quote%20Signal.pdf">A similar idea is being implemented by the IEX</a></span>. Their signal identifies an imminent chance in the bid/ask midpoint by monitoring bid/ask prices across stock exchanges.</li>
+      <li><span class="fragment highlight-current-green"><a href="https://iextrading.com/docs/The%20Evolution%20of%20the%20Crumbling%20Quote%20Signal.pdf">A similar idea is being implemented by the IEX</a></span>. Their signal identifies an imminent change in the bid/offer midpoint by monitoring changes in the best bid/offer prices across stock exchanges.</li>
     </ul>
-    
+
   </section>
 </section>
 
@@ -348,13 +351,13 @@
 
   <section>
     <h3>Varying Liquidity</h3>
-    <p align="left">I measure liquidity on each side of the book as the amount of ES that can be bought within one point of the present bid-ask midpoint. </p>
+    <p align="left">I measure liquidity on each side of the book as the amount of ES that can be bought within one point of the present bid-ask midpoint.</p>
     <ul>
       <li>1 point is 4 ticks (so maximum the inside quote and 3 additional leveld of the book)</li>
       <li>I then calculate the average liquidity over each millisecond, and each second.</li>
-    </ul>	    
+    </ul>
   </section>
-  
+
   <section>
     <h3>Model</h3>
     <br>
@@ -373,8 +376,8 @@
       \[
       P(s_t = j | s_{t-1} = i) = p_{ij} \\ \text{for} \ \ i,j \in {1,2} \ and \ \sum_{j=1}^2 = 1
       \]
-    </span>	
-    
+    </span>
+
   </section>
 
   <section>
@@ -389,40 +392,40 @@
   <section>
     <h3>Example Code</h3>
 
-      <pre><code data-trim data-noescape>	  
+      <pre><code data-trim data-noescape>
 double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, NumericVector change_bam_) {
-  
+
   arma::colvec lnoil = lnoil_;
   arma::colvec lnng = lnng_;
   arma::colvec change_bam = change_bam_;
-  
+
   double alpha1 = theta[0];
   double alpha2 = theta[1];
   double alpha3 = theta[2];
   double alpha4 = theta[3];
   double alpha5 = theta[4];
   double alpha6 = theta[5];
-  double p11 = 1 / (1 + exp(-1*theta[6])); 
+  double p11 = 1 / (1 + exp(-1*theta[6]));
   double p22 = 1 / (1 + exp(-1*theta[7]));
   double alpha7 = theta[8];
   double alpha8 = theta[9];
 
-  
-  
+
+
   arma::mat dist_1 = (1 / (alpha5 * sqrt(2 * PII)))*exp((-pow((lnng - alpha1 - alpha3*lnoil - alpha7 * change_bam), 2))/(2*pow(alpha5,2)));
   arma::mat dist_2 = (1 / (alpha6 * sqrt(2 * PII)))*exp((-pow((lnng - alpha2 - alpha4*lnoil - alpha8 * change_bam), 2))/(2*pow(alpha6,2)));
-  
+
   arma::mat dist = arma::join_rows(dist_1, dist_2);
-  
+
   arma::colvec o;
   o << 1 << 1;
-  
+
   arma::mat P;
   P << p11 << 1 - p22 << arma::endr
     << 1 - p11 << p22 << arma::endr;
-  
+
   int length_lnoil = lnoil.n_elem;
-  
+
   arma::mat xi_a(length_lnoil, 2);
   arma::mat xi_b(length_lnoil, 2);
   arma::vec model_lik(length_lnoil, 1);
@@ -431,7 +434,7 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
   arma::rowvec first_xi_a_numerator;
   first_xi_a_numerator << p11 * dist.row(0)[0] << p22 * dist.row(0)[2];
   double first_xi_a_denominator = p11 * dist.row(0)[0] + p22 * dist.row(0)[1];
-  
+
   xi_a.row(0)[0] = first_xi_a_numerator[0] / first_xi_a_denominator;
   xi_a.row(0)[1] = first_xi_a_numerator[1] / first_xi_a_denominator;
 
@@ -445,9 +448,9 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
   return -1 * logl;
 
 }
-      </code></pre>    
+      </code></pre>
   </section>
-  
+
   <section>
     <h3>Results: 2 State Model</h3>
        \[
@@ -473,7 +476,7 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
       </li>
     </ul>
   </section>
- 
+
 
   <!-- <section data-background-image="./code_image.jpg"> -->
   <!--   <div class="stretch"> -->
@@ -503,8 +506,8 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
 						  \[
 						  \texttt{where}
     \begin{cases}
-\epsilon_1 \sim N(0, 0.004)    \\	     
- \epsilon_2 \sim N(0, 0.40)    \\     
+\epsilon_1 \sim N(0, 0.004)    \\
+ \epsilon_2 \sim N(0, 0.40)    \\
  \epsilon_2 \sim N(0, 0.2929)    \\
     \end{cases}
     \]
@@ -536,7 +539,7 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
     </section>
     <section>
       <h3>LSTM Time Series Prediction</h3>
-      
+
     </section>
     <section>
       <h3>Signal Based on Prediction Error</h3>
@@ -564,7 +567,7 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
 
 <section>
   <section>
-    <h2>LSTM Vs MS Switching Results</h2>    
+    <h2>LSTM Vs MS Switching Results</h2>
   </section>
   <!-- insert plot -->
 <section data-background-image="./code_image.jpg">
@@ -574,7 +577,7 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
 </section>
 
     <section>
-      <pre><code data-trim data-noescape>	  
+      <pre><code data-trim data-noescape>
 ### lets look at the correlation between signals------
 
 pred_error_signal <- 1 * (abs(pred_error) > .1)
@@ -589,13 +592,13 @@ cor.test(pred_error_signal, state_prob_signal)
 ## 95 percent confidence interval:
 ##  0.3245093 0.3355549
 ## sample estimates:
-##       cor 
-## 0.3300434 
+##       cor
+## 0.3300434
 
 </code></pre>
   </section>
 </section>
-	
+
 
 <!-- <section> -->
 <!--   <h4>References</h4> -->
@@ -626,7 +629,7 @@ cor.test(pred_error_signal, state_prob_signal)
   Reveal.initialize({
 
   transition: 'convex',
-  
+
   <!-- menu: { -->
   <!-- 	// Specifies which side of the presentation the menu will  -->
   <!-- 	// be shown. Use 'left' or 'right'. -->
@@ -737,10 +740,10 @@ cor.test(pred_error_signal, state_prob_signal)
   <!-- }, -->
 <!-- end audio section -->
 
-  
-  chalkboard: { 
+
+  chalkboard: {
   src: null,
-  readOnly: undefined, 
+  readOnly: undefined,
   toggleChalkboardButton: { left: "90px", bottom: "30px", top: "auto", right: "auto" },
   toggleNotesButton: { left: "150px", bottom: "30px", top: "auto", right: "auto" },
   },
