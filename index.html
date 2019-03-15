@@ -40,8 +40,9 @@
       <div class="slides">
 
 	<section>
+	  <section></section>
 	  <section data-background-image="./city_skyline.jpg">
-	    <h2>Competitive Adjustment to New Information at High-Frequency: The 2016 Election Results</h2>
+	    <h3>Competitive Adjustment to New Information at High-Frequency: The 2016 Election Results</h3>
       <br />
       <br />
       <br />
@@ -63,7 +64,7 @@
 
 	<section>
 	  <section>
-	    <h2>The Data</h2>
+	    <h2><font color="#ff5050">The Data</font></h2>
 	  </section>
 	  	  <section>
 	    <h3>E-Mini S&P 500 Futures</h3>
@@ -110,8 +111,8 @@
 </section>
 
 <section>
-  <section>
-    <h2>A Look at the Data</h2>
+  <section data-background-image="./lookatdata.jpg">
+    <h2><font color="#ff5050">A Look at the Data</font></h2>
   </section>
   <section data-background-image="./code_image.jpg">
     <div class="stretch">
@@ -128,8 +129,8 @@
 
 
 <section>
-  <section>
-    <h2>Review</h2>
+  <section data-background-image="./review.jpg">
+    <h2><font color="#ff5050">Review</font></h2>
   </section>
 
   <!-- from https://github.com/Matt-Brigida/fin_532_market_depth/blob/master/index.html-->
@@ -139,7 +140,7 @@
     <ul>
       <li>Trades are the method by which <b class="fragment highlight-green">private information</b> is incorporated into <b class="fragment highlight-green">prices</b>.</li>
       <li>Market participants estimate the amount of private information in each trade (as opposed to those trading on noise or for liquidity reasons).</li>
-      <li>The greater the estimated amount of private information, the greater the price impact of the trade.</li>
+      <li><span class="fragment highlight-current-blue">The greater the estimated amount of private information, the greater the price impact of the trade.</span></li>
     </ul>
   </section>
 
@@ -189,8 +190,8 @@
 </section>
 
 <section>
-<section>
-  <h2>A Brief HFT Strategy Overview</h2>
+<section data-background-image="./servers2.jpg">
+  <h2><font color="#ff5050">A Brief</font><font color="#66ff33"> HFT </font><font color="#ff5050">Strategy Overview</font></h2>
 </section>
 
 <section>
@@ -220,7 +221,7 @@
 
 <section>
   <h3>Opportunistic</h3>
-  <p align="left">Often employ momentum trading strategies, or trade based on low latency reaction to events ( <span class="fragment highlight-red"> structural and latency arbitrage; order detection</span>). They still rarely cross the spread.</p>
+  <p align="left">Often employ momentum trading strategies, or trade based on low latency reaction to events (<span class="fragment highlight-red"> structural and latency arbitrage; order detection</span>). They still rarely cross the spread.</p>
 
   <ul>
     <li>These strategies tend to reduce liquitity.</li>
@@ -235,7 +236,7 @@
 
 <section>
   <section>
-    <h2>Reactive Liquidity</h2>
+    <h2><font color="#ff5050">Reactive Liquidity</font></h2>
   </section>
   <section>
     <h3>A Look at Algorithmic Reaction to Trades</h3>
@@ -259,14 +260,14 @@
       <h3>Method</h3>
       <p align="left">We calculate the change in liquidity in the 100 ms after each trade, and regress this on 3 measures of market activity pre-trade.  The three pre-trades measures are:</p>
       <ul>
-	<li>The average bid/ask spread.</li>
-	<li>The number of trades.</li>
-	<li>The number of book changes.</li>
+	<li><span class="fragment highlight-current-red">The average bid/ask spread.</span></li>
+	<li><span class="fragment highlight-current-green">The number of trades.</span></li>
+	<li><span class="fragment highlight-current-green">The number of book changes.</span></li>
       </ul>
     </section>
 
     <section>
-      <h3>Results</h3>
+      <h3>Example Results: <span class="fragment highlight-current-blue">Buy Trade, Offer Side</span></h3>
     </section>
 
   <section data-background-image="./code_image.jpg">
@@ -287,59 +288,57 @@
     </div>
   </section>
 
-  <section>
-    <!--- add summary here; look at regression results-->
-  </section>
-
-
   </section>
 
 
 
 <section>
-  <section>
+  <section data-background-image="./thinkingdata.jpg">
     <h2><span class="fragment highlight-current-green">Thinking With Data</span></h2>
   </section>
 
   <section>
     <h3>Algo Classification</h3>
 
-    <p align="left"><a href="https://scholar.google.com/scholar?cluster=4756032465906689647&hl=en&as_sdt=0,33">Hasbrouck (2016) (High-Frequency Quoting)</a> used variance ratio tests as evidence of algorithmic trading.  His method was ex-post.</p>
+    <p align="left"><a href="https://scholar.google.com/scholar?cluster=4756032465906689647&hl=en&as_sdt=0,33">Hasbrouck (2016) (High-Frequency Quoting)</a> used variance ratio tests to find the presence of algorithmic trading.  The method was ex-post.</p>
     <ul>
-      <li>It found evidence of very fast (independent) changes in the bid/offer.</li>
+      <li>The analysis found evidence of <span class="fragment highlight-current-blue">very fast (independent) changes in the bid/offer</span>.</li>
       <li><span class="fragment highlight-current-red">Changing liquidity is a greater cost for slower traders</span>.</li>
-      <li>Method used cannot be modified to identify the activity on-the-fly.</li>
+      <li>Can we modify this method to identify the activity on-the-fly?</li>
     </ul>
 
   </section>
 
-  <section>
-        <h3>Idea</h3>
-  </section>
+    <section data-background-image="./idea2.jpg">
+    </section>
+    
+  <!-- <section> -->
+  <!--   <h3><font color="yellow">Idea</font></h3> -->
+      <!-- </section> -->
+    
     <section>
 
-    <p align="left">If we can identify periods with particularly volatile liquidity we can create trading <span class="fragment highlight-current-green">mechanisms whereby slower traders liquidity taking orders are canceled/delayed until liquidity is less volatile</span>.</p>
+      <p align="left"><span class="fragment highlight-current-blue">If we can identify periods with particularly volatile liquidity</span> we can create <span class="fragment highlight-current-green">trading mechanisms whereby slower traders liquidity taking orders are canceled/delayed until liquidity is less volatile</span>.</p>
 
-    <p align="left">High-latency (retail) would not notice the delay.  It would save each retail trader a fraction of a cent on each share, but across all retain trades this would be considerable savings.</p>
+    <p align="left"><span class="fragment highlight-current-blue">High-latency (retail) would not notice the delay.  It would save each retail trader a fraction of a cent on each share, but across all retail trades this would be considerable savings.</span></p>
 
   </section>
 
   <section>
 
-    <p align="left">Because of the low-latency nature of the data, these are necessarily automated rules (estimate liquidity volatility over the next few milliseconds and potentially delay given the results).</p>
+    <p align="left">Because of the low-latency nature of the data, these are <span class="fragment highlight-current-blue">necessarily automated rules</span> (estimate liquidity volatility over the next few milliseconds and potentially delay given the results).</p>
 
     <ul>
-      <li>Identification would have to be quick (forward pass through models in milliseconds).</li>
+      <li>Identification would have to be quick (<span class="fragment highlight-current-blue">forward pass through models in a few milliseconds</span>).</li>
       <li><span class="fragment highlight-current-green"><a href="https://iextrading.com/docs/The%20Evolution%20of%20the%20Crumbling%20Quote%20Signal.pdf">A similar idea is being implemented by the IEX</a></span>. Their signal identifies an imminent change in the bid/offer midpoint by monitoring changes in the best bid/offer prices across stock exchanges.</li>
     </ul>
-
   </section>
 </section>
 
 
   <section>
   <section>
-    <h2>Markov-Regime Switching Regression Approach</h2>
+    <h2><font color="#ff5050">Markov-Regime Switching Regression Approach</font></h2>
   </section>
   <section>
     <h3>Real-Time Classification</h3>
@@ -351,7 +350,7 @@
 
   <section>
     <h3>Varying Liquidity</h3>
-    <p align="left">I measure liquidity on each side of the book as the amount of ES that can be bought within one point of the present bid-ask midpoint.</p>
+    <p align="left">I measure liquidity on each side of the book as the amount of ES that can be bought within one point of the present bid-offer midpoint.</p>
     <ul>
       <li>1 point is 4 ticks (so maximum the inside quote and 3 additional leveld of the book)</li>
       <li>I then calculate the average liquidity over each millisecond, and each second.</li>
@@ -465,7 +464,7 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
   <section>
     <h3>Results</h3>
     <ul>
-      <li>The model is only picking up states of changing liquidity and stable liquidity.</li>
+      <li><span class="fragment highlight-current-blue">The model is only picking up states of changing liquidity and stable liquidity.</span></li>
       <li>Ex-post this makes sense.</li>
       <li>This motivates a 3 state model:
 	<ol>
@@ -534,9 +533,15 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
   </section>
 
   <section>
-    <section>
-      <h3>AI/ML Approaches</h3>
+    <section data-background-image="./lisp.jpg">
+      <h2><font color="#ff5050">AI/ML Approaches</font></h2>
     </section>
+
+    <!-- <section data-background-image="./AI.jpg"> -->
+    <!--   <h2><font color="#ff5050">AI/ML Approaches</font></h2> -->
+    <!-- </section> -->
+
+    
     <section>
       <h3>LSTM Time Series Prediction</h3>
 
@@ -545,7 +550,7 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
       <h3>Signal Based on Prediction Error</h3>
       <p align="left">We can use a prediction error above a particular threshold as our algo indicator.</p>
       <ul>
-	<li>Downside no obvious threshold other than a confidence interval.</li>
+	<li><span class="fragment highlight-current-red">Downside no obvious threshold</span> other than a confidence interval.</li>
 	<li>Must establish a link between the prediction error and algo activity.</li>
       </ul>
     </section>
@@ -567,7 +572,7 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
 
 <section>
   <section>
-    <h2>LSTM Vs MS Switching Results</h2>
+    <h2><font color="#ff5050">LSTM Vs MS Switching Results</font></h2>
   </section>
   <!-- insert plot -->
 <section data-background-image="./code_image.jpg">
@@ -599,6 +604,10 @@ cor.test(pred_error_signal, state_prob_signal)
   </section>
 </section>
 
+
+<section>
+  <h2>Questions/Comments?</h2>
+</section>
 
 <!-- <section> -->
 <!--   <h4>References</h4> -->
