@@ -353,7 +353,7 @@
     <p align="left">I measure liquidity on each side of the book as the amount of ES that can be bought within one point of the present bid-offer midpoint.</p>
     <ul>
       <li>1 point is 4 ticks (so maximum the inside quote and 3 additional leveld of the book)</li>
-      <li>I then calculate the average liquidity over each millisecond, and each second.</li>
+      <li>I control for changes in the bid-offer mindpoint.</li>
     </ul>
   </section>
 
@@ -548,10 +548,10 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
     </section>
     <section>
       <h3>Signal Based on Prediction Error</h3>
-      <p align="left">We can use a prediction error above a particular threshold as our algo indicator.</p>
+      <p align="left"><span class="fragment highlight-current-green">We can use a <span class="fragment highlight-current-green">prediction error above a particular threshold</span> as our algo indicator.</span></p>
       <ul>
 	<li><span class="fragment highlight-current-red">Downside no obvious threshold</span> other than a confidence interval.</li>
-	<li>Must establish a link between the prediction error and algo activity.</li>
+	<li><span class="fragment highlight-current-blue">Must establish a link between the prediction error and algo activity.</span></li>
       </ul>
     </section>
     <section>
@@ -574,7 +574,7 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
   <section>
     <h2><font color="#ff5050">LSTM Vs MS Switching Results</font></h2>
   </section>
-  <!-- insert plot -->
+
 <section data-background-image="./code_image.jpg">
   <div class="stretch">
     <iframe src="./graphics/pred_error_vs_state2_from_3.html" height="100%" width="100%"></iframe>
