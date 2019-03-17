@@ -333,6 +333,14 @@
       <li><span class="fragment highlight-current-green"><a href="https://iextrading.com/docs/The%20Evolution%20of%20the%20Crumbling%20Quote%20Signal.pdf">A similar idea is being implemented by the IEX</a></span>. Their signal identifies an imminent change in the bid/offer midpoint by monitoring changes in the best bid/offer prices across stock exchanges.</li>
     </ul>
   </section>
+
+  <section>
+    <h3>From the paper</h3>
+    <p align="left"><i>"Now that we have a basic version of a crumbling quote signal to work with,we  can  consider  how  to  deploy  it  on  our  market.   Historically,  we  have embedded it inside our discretionary peg (dpeg) order.  This is a dark ordertype that rests on the book at the near side, but can exercise “discretion”to trade at the midpoint of the NBBO when the crumbling quote signal isnot on.  In this way, discretionary peg orders behave less aggressively whilethe signal is on, seeking to avoid bad trades at the midpoint just before the NBBO moves in their favor."...</i></p>
+  </section>
+  <section>
+    <p align="left"><i>"Just this month, IEX gained approval from the SEC to release a new version of our primary peg order type which will also incorporate the signal.This order type will rest one tick outside the NBBO and exercise discretionto trade at the NBBO while the signal is off."</i></p>
+  </section>
 </section>
 
 
@@ -601,7 +609,12 @@ cor.test(pred_error_signal, state_prob_signal)
 ## 0.3300434
 
 </code></pre>
-  </section>
+    </section>
+
+    <section>
+      <p align="left">Assuming a 20 milllisecond firing window, our signal wil be <it>on</it> for about 1.25 hours per day, <span class="fragment highlight-current-red">which cumulatively is about 5% of the trading day</span>.</p>
+    </section>
+    
 </section>
 
 
