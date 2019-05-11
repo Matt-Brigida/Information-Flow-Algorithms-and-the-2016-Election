@@ -540,7 +540,27 @@ double lik(NumericVector theta, NumericVector lnoil_, NumericVector lnng_, Numer
     </section>
 
     <section>
-      <h3><span class="fragment highlight-current-blue">4 States?</span></h3>
+      <h3><span class="fragment highlight-current-blue">4 States</span></h3>
+             \[
+      Liq_t =
+      \begin{cases}
+      0.0024 + 0.9983 Liq_{t-1} + 0.1319 \Delta BAM + \epsilon_1 \\
+      -0.1626 + 0.9469 Liq_{t-1} + 0.0791 \Delta BAM + \epsilon_2 \\
+      -0.0594 - 0.3211 Liq_{t-1} + 0.8524 \Delta BAM + \epsilon_3 \\
+      0.3796 - 0.0636 Liq_{t-1} - 0.1802 \Delta BAM + \epsilon_4 \\
+      \end{cases}
+    \]
+    <br>
+						  \[
+						  \texttt{where}
+    \begin{cases}
+\epsilon_1 \sim N(0, 0.0077)    \\
+ \epsilon_2 \sim N(0, 0.6580)    \\
+ \epsilon_3 \sim N(0, 0.2901)    \\
+ \epsilon_4 \sim N(0, 0.2409)    \\
+    \end{cases}
+    \]
+
     </section>
 
 
